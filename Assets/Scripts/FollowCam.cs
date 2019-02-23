@@ -25,13 +25,25 @@ public class FollowCam : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (poi == null) return;  //return if no point of interest
-
-        //Get position of poi
-        Vector3 destination = poi.transform.position;
+        Vector3 destination;
+        if (poi == null)
+        {
+            destination = Vector3.zero;
+        }
+        else
+        {
+            destination = poi.transform.position;
+            if (poi.tag == "Projectile")
+            {
+                if (poi.GetComponent<Rigidbody>().IsSleeping())
+                {
+                    poi = null;
+                    return;
+                }
+            }
+        }
         //Limit the X/Y to min values
         destination.x = Mathf.Max(minXY.x, destination.x);
         destination.y = Mathf.Max(minXY.y, destination.y);
@@ -44,4 +56,6 @@ public class FollowCam : MonoBehaviour
         //Set the orthographicSize of camrea to keep ground in view
         this.GetComponent<Camera>().orthographicSize = destination.y + 10;
     }
+
+   
 }

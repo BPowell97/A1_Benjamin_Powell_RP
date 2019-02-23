@@ -62,6 +62,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CloudCrafter.cs" />
     <Compile Include="Assets\Scripts\FollowCam.cs" />
+    <Compile Include="Assets\Scripts\Goal.cs" />
+    <Compile Include="Assets\Scripts\ProjectileLine.cs" />
     <Compile Include="Assets\Scripts\Slingshot.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>F:/Desktop/A1_Benjamin_Powell_RP/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

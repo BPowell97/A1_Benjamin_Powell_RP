@@ -6,7 +6,7 @@ public class CloudCrafter : MonoBehaviour
 {
     //Fields set in the unity inspector
     public int numClouds = 40;
-    public GameObject cloudPrefabs;
+    public GameObject[] cloudPrefabs;
     public Vector3 cloudPosMin;
     public Vector3 cloudPosMax;
     public float cloudScaleMin = 1;
@@ -16,7 +16,7 @@ public class CloudCrafter : MonoBehaviour
     public bool _____________;
 
     //fields set dynamically
-    public GameObject cloudInstances;
+    public GameObject[] cloudInstances;
 
     void Awake()
     {
@@ -32,7 +32,7 @@ public class CloudCrafter : MonoBehaviour
             // Random.Range will not ever pick as high as the top number
             int prefabNum = Random.Range(0, cloudPrefabs.Length);
             // Make an instance
-            cloud = Instantiate(cloudPrefabs[prefabNum]) as GameObject;
+            cloud = Instantiate(cloudPrefabs[prefabNum]) as GameObject; //error code
             // Position cloud
             Vector3 cPos = Vector3.zero;
             cPos.x = Random.Range(cloudPosMin.x, cloudPosMax.x);

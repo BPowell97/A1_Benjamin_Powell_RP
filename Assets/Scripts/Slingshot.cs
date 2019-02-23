@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour
 {
+    static public Slingshot S;
+    
     // fields set in unity inspector panel
     public GameObject prefabProjectile;
     public float velocityMult = 4f;
@@ -23,6 +25,8 @@ public class Slingshot : MonoBehaviour
 
     private void Awake()
     {
+        S = this; // Set the slingshot singleton S
+
         Transform launchPointTrans = transform.Find("LaunchPoint");
         launchPoint = launchPointTrans.gameObject;
         launchPoint.SetActive(false);
