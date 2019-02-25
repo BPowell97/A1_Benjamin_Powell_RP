@@ -27,6 +27,8 @@ public class MissionDemolition : MonoBehaviour
     public GameMode mode = GameMode.idle;
     public string showing = "Slingshot";
 
+    //public GameObject winPanel;
+
     void Start()
     {
         S = this;
@@ -135,13 +137,28 @@ public class MissionDemolition : MonoBehaviour
     public static void ShotFired()
     {
         S.shotsTaken++;
-        if (S.shotsTaken < 0)
+      
+    }
+
+    /*private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Goal")
         {
-            if (Goal.goalMet != true)
-            {
-                SceneManager.LoadScene("_U_EndScene");  //shotsTaken cond leads to load scene
-            }
+            Finish();
         }
     }
-   
+
+    void Finish()
+    {
+        if (Goal.goalMet != true)
+        {
+            
+            winPanel.SetActive(true);
+        }
+        
+        
+    }*/
+
+
+
 }

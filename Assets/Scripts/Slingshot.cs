@@ -90,5 +90,27 @@ public class Slingshot : MonoBehaviour
         }
     }
 
+    public GameObject winPanel;
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.tag == "Goal")
+        {
+            Finish();
+        }
+    }
+
+
+    void Finish()
+    {
+        if (Goal.goalMet != true)
+        {
+
+            winPanel.SetActive(true);
+        }
+
+    }
+
 
 }

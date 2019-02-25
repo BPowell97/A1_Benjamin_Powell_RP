@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    static public MainMenu S;
     public GameObject pausePanel;
 
 
