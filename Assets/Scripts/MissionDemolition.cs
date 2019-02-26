@@ -22,12 +22,13 @@ public class MissionDemolition : MonoBehaviour
     public bool __________;
     public int level;
     public int levelMax;
-    public int shotsTaken;
+    //public int shotsTaken;
+    public int shotsAvailable;
     public GameObject castle;
     public GameMode mode = GameMode.idle;
     public string showing = "Slingshot";
 
-    //public GameObject winPanel;
+    public GameObject winPanel;
 
     void Start()
     {
@@ -50,9 +51,10 @@ public class MissionDemolition : MonoBehaviour
             Destroy(pTemp);
         }
 
-        castle = Instantiate(castles[level]) as GameObject;
+        castle = Instantiate(castles[level]) as GameObject; // error
         castle.transform.position = castlePos;
-        shotsTaken = 3;
+        //shotsTaken = 0; //can change to shots available
+        shotsAvailable = 5;
         SwitchView("Both");
         ProjectileLine.S.Clear();
         Goal.goalMet = false;
@@ -63,7 +65,8 @@ public class MissionDemolition : MonoBehaviour
     void ShowGT()
     {
         gtLevel.text = "Level: " + (level + 1) + " of " + levelMax;
-        gtScore.text = "Shots Available: " + shotsTaken;
+        //gtScore.text = "Shots Taken: " + shotsTaken; //can change to shots available
+        gtScore.text = "Shots Available: " + shotsAvailable;
     }
 
     void Update()
@@ -136,8 +139,15 @@ public class MissionDemolition : MonoBehaviour
 
     public static void ShotFired()
     {
-        S.shotsTaken++;
-      
+        //S.shotsTaken++;
+        //S.shotsAvailable--;
+        if (S.shotsAvailable > 0)
+        {
+            S.shotsAvailable--;
+            //S.winPanel.SetActive(true);
+        }
+        else
+            S.winPanel.SetActive(true);
     }
 
     /*private void OnTriggerEnter2D(Collider2D col)

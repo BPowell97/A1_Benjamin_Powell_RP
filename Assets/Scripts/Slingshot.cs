@@ -19,8 +19,8 @@ public class Slingshot : MonoBehaviour
 
     private void Start()
     {
-        rb = projectile.GetComponent<Rigidbody>();
-        rb.isKinematic = true;
+        //rb = projectile.GetComponent<Rigidbody>();
+        //rb.isKinematic = true;
     }
 
     private void Awake()
@@ -30,6 +30,7 @@ public class Slingshot : MonoBehaviour
         Transform launchPointTrans = transform.Find("LaunchPoint");
         launchPoint = launchPointTrans.gameObject;
         launchPoint.SetActive(false);
+        launchPos = launchPointTrans.position;
     }
 
     void OnMouseEnter() //Do not Change
@@ -53,7 +54,7 @@ public class Slingshot : MonoBehaviour
         //Start it at the launchPoint
         projectile.transform.position = launchPos;
         //Set it to isKinematic for now
-        rb.isKinematic = false;
+        projectile.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     private void Update()
@@ -63,7 +64,7 @@ public class Slingshot : MonoBehaviour
         //Get the current mouse position in 2d screen coordinates 
         Vector3 mousePos2D = Input.mousePosition;
         //Convert mouse position to 3d world coordinates
-        mousePos2D.z = Camera.main.transform.position.z;
+        mousePos2D.z = -Camera.main.transform.position.z;
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
         //Find the delta from the launchPos to the mousePos3d
         Vector3 mouseDelta = mousePos3D - launchPos;
@@ -82,8 +83,8 @@ public class Slingshot : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             aimingMode = false;
-            rb.isKinematic = false;
-            rb.velocity = -mouseDelta * velocityMult;
+            projectile.GetComponent<Rigidbody>().isKinematic = false;
+            projectile.GetComponent<Rigidbody>().velocity = -mouseDelta * velocityMult;
             FollowCam.S.poi = projectile;
             projectile = null;
             MissionDemolition.ShotFired();
