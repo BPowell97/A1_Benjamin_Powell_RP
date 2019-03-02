@@ -91,7 +91,7 @@ public class Slingshot : MonoBehaviour
         }
     }
 
-    public GameObject winPanel;
+    /*public GameObject winPanel;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -111,7 +111,7 @@ public class Slingshot : MonoBehaviour
             winPanel.SetActive(true);
         }
 
-    }
+    }*/
 
 
 }
