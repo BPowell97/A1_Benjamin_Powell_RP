@@ -17,11 +17,28 @@ public class Slingshot : MonoBehaviour
     public bool aimingMode;
     public Rigidbody rb;
 
+    //public int scoreValue = 10;
+
     private void Start()
     {
         //rb = projectile.GetComponent<Rigidbody>();
         //rb.isKinematic = true;
     }
+
+    /*void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Castle")
+        {
+            Debug.Log("Collision detected");
+            Hit();
+
+        }
+    }
+
+    void Hit()
+    {
+        GameManager.Instance.AddScore(scoreValue);
+    }*/
 
     private void Awake()
     {

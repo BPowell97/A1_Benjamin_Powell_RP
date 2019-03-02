@@ -29,6 +29,7 @@ public class MissionDemolition : MonoBehaviour
     public string showing = "Slingshot";
 
     public GameObject winPanel;
+    
 
     void Start()
     {
@@ -61,6 +62,8 @@ public class MissionDemolition : MonoBehaviour
         ShowGT();
         mode = GameMode.playing;
     }
+
+    
 
     void ShowGT()
     {

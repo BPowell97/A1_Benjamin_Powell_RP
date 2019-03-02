@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5044148853715796866}
   m_Layer: 0
   m_Name: Castle_01
-  m_TagString: Untagged
+  m_TagString: Castle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,6 +592,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1320845908156274181, guid: 544831e758747704284bfc526b46ca4d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 544831e758747704284bfc526b46ca4d, type: 3}
 --- !u!4 &4789438383959179455 stripped
@@ -890,6 +895,11 @@ PrefabInstance:
     - target: {fileID: 321983723610951525, guid: 544831e758747704284bfc526b46ca4d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320845908156274181, guid: 544831e758747704284bfc526b46ca4d,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

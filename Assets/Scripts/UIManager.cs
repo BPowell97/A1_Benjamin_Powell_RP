@@ -5,12 +5,16 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    
 
+    public static UIManager Instance;
+    //public TextMeshProUGUI scoreText;
     public GameObject pausePanel;
     bool Paused = false;
 
-   
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Use this for initialization
     void Start ()
@@ -55,4 +59,9 @@ public class UIManager : MonoBehaviour
         pausePanel.gameObject.SetActive(false);
         
     }
+
+    /*public void UpdateScore()
+    {
+        scoreText.text = "Score: <color=white>" + GameManager.Instance.score.ToString();
+    }*/
 }
